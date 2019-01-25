@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8"/>
+ <title>Подключение внешних стилей</title>
+ <script src="script.js" defer></script>
+</head>
+  <body>
+<?php
+ 
+/** Данные для подключения к Базе Данных */
+$host = 'localhost';
+$database = 'test';
+$user = 'root';
+$password = '';
+ 
+/** Подключаемся в Базе Данных */
+$pdo = new PDO('mysql:host='. $host .';dbname='.$database.';charset=utf8', $user, $password);
+$pdo->exec("SET NAMES utf8");
+ 
+/** Выбираем статьи и выводим их */
+$query = $pdo->prepare("SELECT * FROM article");
+$query->execute();
+$articles = $query->fetchAll(PDO::FETCH_ASSOC);
+ 
+?>
+<?php if($articles):?>
+    <?php foreach($articles as $article): ?>
+        <div class="like" data-id="<?php print $article['id']?>"><span class="counter"><?php print $article['count_like'] ?></span></div>
+    <?php endforeach; ?>
+<?php endif; ?
+</body>
+</html>

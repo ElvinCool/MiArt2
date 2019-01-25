@@ -1,0 +1,27 @@
+ h1,h2,h3,h4 {
+  font-family: 'Segoe UI';
+   } 
+   p {
+    font-family: 'Segoe UI'; /* Шрифт с засечками */
+    font-style: bold; 
+   }
+  .block1{
+border-radius: 100%;
+background: gray;
+width: 122px;
+height: 122px;
+}
+html {
+  background-color: #D1D1D1;
+}
+img{
+  text-align: center;
+}
+.block2 {
+  text-align: center;
+display: inline-block;
+vertical-align: top;
+  background-color: #fff;
+  padding: 30px;
+  margin-left: 460px;
+  }
